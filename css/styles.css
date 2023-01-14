@@ -1,0 +1,87 @@
+/* Styles for it261 Portal Page*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #eee;
+}
+
+#wrapper{
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+nav{
+    height: 140px;
+    border-radius: 10px;
+    background-color: #99cccc;
+    line-height: 60px;
+    margin-bottom: 20px;
+}
+
+nav li{
+    float: left;
+    width: 16.66%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    list-style-type: none;
+}
+
+nav a{
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+main{
+    width: 62%;
+    float: left;
+}
+
+aside{
+    width: 35%;
+    float: right;
+    font-family: Helvetica, sans-serif;
+}
+
+.right{
+    float: right;
+    margin-left: 30px;
+    max-width: 50%;
+}
+
+.screenshot{
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Typography*/
+h1{
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+h2{
+    font-size: 2em;
+    text-align: left;
+}
+h3{
+    font-size: 1.5em;
+    text-align: center;
+}
+main h3, aside h3{
+   text-align: left;
+    font-size: 1em;
+}
+h1, h2, h3{
+    font-family: Arial Black, sans-serif;
+    line-height: 2em;
+}
+
+p{
+    font-family: Helvetica, sans-serif;
+}
