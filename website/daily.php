@@ -1,51 +1,22 @@
-<?php
-include ('./includes/header.php');
+<?php 
+    include ('./includes/header.php');
 ?>
-
-<style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        #wrapper {
-            width: 1080px;
-            margin: 20px auto;
-        }
-        h1, h2 {
-            margin-bottom: 5px;
-        }
-        img {
-            max-width: 100%;
-            margin-bottom: 10px;
-        }
-        p {
-            margin-bottom: 20px;
-            line-height: 1.5em;
-        }
-        main{
-            padding: 20px;
-        }
-
-        aside{
-            padding: 20px;
-        }
-    </style>
-
-<div id="wrapper">
-  <main>
-    <h1>Welcome to my Daily Page!</h1>
-    <p>Being a working mom doesn't leave much time to myself. I work 40hrs a week, have to be present so my
+<div id="wrapper">    
+    <main class="blurb">
+        <h1>Welcome to my Daily Page!</h1>
+        <p>Being a working mom doesn't leave much time to myself. I work 40hrs a week, have to be present so my
         kids don't turn into trolls, and still get schoolwork done. So, I relish those few blissful
         hours between the kids' bedtime and my own. Here's a glimpse into how I'll spend that precious time today.</p>
     
-    <h2 style="color:<?php echo $hili;?>"><?php echo $day;?></h2>
-       <img src="./images/<?php echo $pic;?>" alt="<?php echo $alt;?>">
-       <p><?php echo $content;?></p>
-  </main>
-  <aside>
-    <h2>Curious about the rest of my week?</h2>
-    <h3>Satisfy your stalker needs:</h3>
+        <h2 style="color:<?php echo $hili;?>"><?php echo $day;?></h2>
+        <div id="daily">
+            <img src="./images/<?php echo $pic;?>" alt="<?php echo $alt;?>">
+        </div>
+        <?php echo $content;?>
+    </main>
+    <aside class="blurb">
+        <h2>Curious about the rest of my week?</h2>
+        <h3>Satisfy your stalker needs:</h3>
         <ul>
             <li><a style="color:
                     <?php
@@ -55,7 +26,7 @@ include ('./includes/header.php');
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Sunday">Sunday</a></li>
+                href="daily2.php?today=Sunday">Sunday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Monday') {
@@ -111,7 +82,7 @@ include ('./includes/header.php');
                     ?>"
                 href="daily.php?today=Saturday">Saturday</a></li>
         </ul>
-  </aside>
+    </aside>
 </div>
 <!--end wrapper-->
 <?php include ('./includes/footer.php'); ?>
