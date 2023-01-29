@@ -26,7 +26,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily2.php?today=Sunday">Sunday</a></li>
+                href="daily.php?today=Sunday">Sunday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Monday') {
