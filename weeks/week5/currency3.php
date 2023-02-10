@@ -57,13 +57,15 @@ $yen_rate= 0.0078; -->
                 echo '<p class="error">Please, specify the currency.</p>';
             } if ($_POST['bank'] == NULL) {
                 echo '<p class="error">Please, select your bank.</p>';
-            } elseif (isset($_POST['name'], $_POST['email'], $_POST['amount'], $_POST['currency'], $_POST['bank'])) {
+            } if (isset($_POST['name'], $_POST['email'], $_POST['amount'], $_POST['currency'], $_POST['bank'])) {
                 $name = $_POST['name'];
                 $email = $_POST['email'];
                 $amount = floatval($_POST['amount']);
                 $currency = floatval($_POST['currency']);
                 $bank = $_POST['bank'];
                 $usd = $amount * $currency;
+
+                if (!empty ($name && $email && $amount && $currency && $bank)) {
 
                 echo 
                 '<div class="box">
@@ -73,6 +75,7 @@ $yen_rate= 0.0078; -->
                 </div>';
             }
         }
+    }
     ?>
 </body>
 </html>
