@@ -127,17 +127,25 @@
                 echo '<p class="error">Please, select the travel area\'s price of gas.</p>';
             } if ($_POST['efficiency'] == NULL) {
                 echo '<p class="error">Please, select your vehicle\'s gas mileage.</p>';
-            } elseif (isset($_POST['name'], $_POST['distance'], $_POST['speed'], $_POST['hours'], $_POST['gas'], $_POST['efficiency'])) {
+            } if (isset($_POST['name'], $_POST['distance'], $_POST['speed'], $_POST['hours'], $_POST['gas'], $_POST['efficiency'])) {
                 $name = $_POST['name'];
-                $distance = $_POST['distance'];
-                $speed = $_POST['speed'];
-                $hours = $_POST['hours'];
-                $gas = $_POST['gas'];
-                $efficiency = $_POST['efficiency'];
+                $distance = (int)$_POST['distance'];
+                $speed = (int)$_POST['speed'];
+                $hours = (int)$_POST['hours'];
+                $gas = (int)$_POST['gas'];
+                $efficiency = (int)$_POST['efficiency'];
                 $usd = ($distance / $efficiency) * $gas;
+                if ($speed == 0) {
+                    $speed = 1;
+                }
                 $drive_time = $distance / $speed;
+                if ($hours == 0) {
+                    $hours = 1;
+                }
                 $day = ($drive_time / $hours);
                 $fuel = $distance / $efficiency;
+
+                if (!empty($name && $distance && $speed && $hours && $gas && $efficiency)) {
 
                 echo 
                 '<div class="box">
@@ -147,6 +155,7 @@
                 </div>';
             }
         }
+    }
     ?>
 </body>
 </html>
