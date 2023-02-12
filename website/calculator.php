@@ -65,12 +65,7 @@
             text-align: center;
             margin-top: 10px;
         }
-        .error {
-            color: indianred;
-            font-style: italic;
-            text-align: center;
-            margin-top: 10px;
-        }
+        
     </style>
 </head>
 <body>

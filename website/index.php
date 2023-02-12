@@ -1,4 +1,5 @@
 <?php 
+    include ('config.php');
     include ('./includes/header.php');
 ?>
 <div id="wrapper">
@@ -23,5 +24,3 @@
 <!--end wrapper-->
 
 <?php include ('./includes/footer.php'); ?>
-</body>
-</html>

@@ -1,5 +1,4 @@
 <?php 
-    include ('config.php');
     include ('./includes/header.php');
 ?>
 <div id="wrapper">    
@@ -27,7 +26,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Sunday">Sunday</a></li>
+                href="daily2.php?today=Sunday">Sunday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Monday') {
@@ -36,7 +35,7 @@
                             echo '#fff';
                         };
                     ?>" 
-                href="daily.php?today=Monday">Monday</a></li>
+                href="daily2.php?today=Monday">Monday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Tuesday') {
@@ -45,7 +44,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Tuesday">Tuesday</a></li>
+                href="daily2.php?today=Tuesday">Tuesday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Wednesday') {
@@ -54,7 +53,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Wednesday">Wednesday</a></li>
+                href="daily2.php?today=Wednesday">Wednesday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Thursday') {
@@ -63,7 +62,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Thursday">Thursday</a></li>
+                href="daily2.php?today=Thursday">Thursday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Friday') {
@@ -72,7 +71,7 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Friday">Friday</a></li>
+                href="daily2.php?today=Friday">Friday</a></li>
             <li><a style="color:
                     <?php
                         if ($today == 'Saturday') {
@@ -81,10 +80,11 @@
                             echo '#fff';
                         };
                     ?>"
-                href="daily.php?today=Saturday">Saturday</a></li>
+                href="daily2.php?today=Saturday">Saturday</a></li>
         </ul>
     </aside>
 </div>
 <!--end wrapper-->
 <?php include ('./includes/footer.php'); ?>
-
+</body>
+</html>
