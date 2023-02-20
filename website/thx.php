@@ -6,9 +6,9 @@
     <main class="blurb">
         <h1>Feel Free to Contact Me</h1>
         <p>I'm putting together a Sci-Fi/Fantasy book club and you're invited. Please use the form below to let me know you're interested and your preferences for the group as I gather the details together.</p>
-        <?php
-          include ('./includes/form.php');  
-        ?>
+        <h2>Your submission has been receivied.</h2>
+        <h3>Thank you kindly for filling out the form</h3>
+        <p> You should hear from me shortly. </p>
     </main>
     <aside class="blurb">
     <h3>Here's More Fun Ipsum</h3>
@@ -17,4 +17,3 @@
 </div>
 <!--end wrapper-->
 <?php include ('./includes/footer.php'); ?>
-

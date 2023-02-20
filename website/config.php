@@ -56,6 +56,7 @@ function make_links($nav) {
 }
 
 //switch (HW3)
+date_default_timezone_set('America/Los_Angeles');
 if (isset($_GET['today'])) {
     $today= $_GET['today'];
 } else {
@@ -148,19 +149,19 @@ switch ($today) {
 $first_name = '';
 $last_name = '';
 $email = '';
-$pronouns = '';
+$frequency = '';
 $phone = '';
-$wine = '';
-$regions = '';
+$genre = '';
+$schedule = '';
 $comments = '';
 $privacy = '';
 $first_name_err = '';
 $last_name_err = '';
 $email_err = '';
-$pronouns_err = '';
+$frequency_err = '';
 $phone_err = '';
-$wine_err = '';
-$regions_err = '';
+$genre_err = '';
+$schedule_err = '';
 $comments_err = '';
 $privacy_err = '';
 
@@ -178,22 +179,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email_err = 'Please provide your email';
     } else {
         $email = $_POST['email'];
-    } if (empty($_POST['pronouns'])) {
-        $pronouns_err = 'Please specify your preferred pronouns';
+    } if (empty($_POST['frequency'])) {
+        $frequency_err = 'Please specify your preferred frequency';
     } else {
-        $pronouns = $_POST['pronouns'];
-    } if (empty($_POST['phone'])) {
+        $frequency = $_POST['frequency'];
+    } if(empty($_POST['phone'])) { // if empty, type in your number
         $phone_err = 'Please provide your phone number';
+    } elseif(array_key_exists('phone', $_POST)){
+        if(!preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) { // if you are not typing the requested format of xxx-xxx-xxxx, display Invalid format
+               $phone_err = 'Invalid format!';
+         } else {
+                $phone = $_POST['phone'];
+         }     
+    } if (empty($_POST['genre'])) {
+        $genre_err = 'Please share what you\'re into... No judgements here!';
     } else {
-        $phone = $_POST['phone'];
-    } if (empty($_POST['wine'])) {
-        $wine_err = 'Oh no! You\'re missing the best part.';
+        $genre = $_POST['genre'];
+    } if ($_POST['schedule'] == NULL) {
+        $schedule_err = 'Please select a day/time';
     } else {
-        $wine = $_POST['wine'];
-    } if ($_POST['regions'] == NULL) {
-        $regions_err = 'Please select a region';
-    } else {
-        $regions = $_POST['regions'];
+        $schedule = $_POST['schedule'];
     } if (empty($_POST['comments'])) {
         $comments_err = 'Please enter your comments';
     } else {
@@ -202,35 +207,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $privacy_err = 'Confirm you\'ve read and agree to privacy policy';
     } else {
         $privacy = $_POST['privacy'];
-    } function my_wine($wine) {
+    } function my_genre($genre) {
         $my_return = '';
-        if (!empty($_POST['wine'])) {
-            $my_return = implode(', ', $_POST['wine']);
+        if (!empty($_POST['genre'])) {
+            $my_return = implode(', ', $_POST['genre']);
         } else {
-            $wine_err = 'Oh no! You\'re missing the best part.';
+            $genre_err = 'Please share what you\'re into... No judgements here!';
         }
         return $my_return;
     }
     
-    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['pronouns'], $_POST['phone'], $_POST['wine'], $_POST['regions'], $_POST['comments'], $_POST['privacy'])) {
-        $to = 'daniellegajohnson@yahoo.com';
-        $subject = 'Test Email on' .date('m/d/y, h i A');
+    if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['frequency'], $_POST['phone'], $_POST['genre'], $_POST['schedule'], $_POST['comments'], $_POST['privacy'])) {
+        $to = 'szemeo@mystudentswa.com';
+        $subject = 'Book Club Email on ' .date('m/d/y, h:i A');
         $body = 
         '
         First Name: '.$first_name.' '.PHP_EOL.'
         Last Name: '.$last_name.' '.PHP_EOL.'
         Email: '.$email.' '.PHP_EOL.'
-        Pronouns: '.$pronouns.' '.PHP_EOL.'
         Phone: '.$phone.' '.PHP_EOL.'
-        Wines: '.my_wine($wine).' '.PHP_EOL.'
-        Region: '.$regions.' '.PHP_EOL.'
+        Frequency: '.$frequency.' '.PHP_EOL.'
+        Schedule: '.$schedule.' '.PHP_EOL.'
+        Categories: '.my_genre($genre).' '.PHP_EOL.'
         Comments: '.$comments.' '.PHP_EOL.'
         ';
         $headers = array(
             'From' => 'noreply@rarebirdparties.com'
         );
         
-        if (!empty($first_name && $last_name && $email && $pronouns && $phone && $wine && $regions && $comments)) {
+        if (!empty($first_name && $last_name && $email && $frequency && $phone && $genre && $schedule && $comments) && preg_match('/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST['phone'])) {
             mail($to, $subject, $body, $headers);
             header('Location:thx.php');
         }
