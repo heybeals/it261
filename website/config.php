@@ -218,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     if (isset($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['frequency'], $_POST['phone'], $_POST['genre'], $_POST['schedule'], $_POST['comments'], $_POST['privacy'])) {
-        $to = 'szemeo@mystudentswa.com';
+        $to = 'daniellegajohnson@yahoo.com';
         $subject = 'Book Club Email on ' .date('m/d/y, h:i A');
         $body = 
         '
