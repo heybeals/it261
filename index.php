@@ -15,8 +15,8 @@
      <li><a href="website/adder.php">Troubleshoot</a></li>
      <li><a href="website/calculator.php">Calculator</a></li>
      <li><a href="website/contact.php">Email</a></li>
-     <li><a href="">Database</a></li>
-     <li><a href="">Gallery</a></li>
+     <li><a href="website/project.php">Database</a></li>
+     <li><a href="website/gallery.php">Gallery</a></li>
     </ul>
  </nav>   
 
@@ -88,6 +88,12 @@
         <li><a href="weeks/week7/strings.php">strings.php</a></li>
         <li><a href="weeks/week7/pictures.php">pictures.php</a></li>
         <li><a href="weeks/week7/random.php">random.php</a></li>
+      <ul>
+    </li>
+    <li><h3>Week 8</h3>
+      <ul>  
+        <li><a href="weeks/week8/people.php">people.php</a></li>
+        <li><a href="weeks/week8/people-view.php">people-view.php</a></li>
       <ul>
     </li>
    </ol>
