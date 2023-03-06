@@ -5,6 +5,7 @@ session_start();
 include('config.php');
 // include('./includes/header.php');
 
+$errors = [];
 $iConn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(myError(__FILE__,__LINE__,mysqli_connect_error()));
 if (isset($_POST['reg_user'])) {
     $first_name = mysqli_real_escape_string($iConn, $_POST['first_name']);
@@ -51,7 +52,7 @@ if (isset($_POST['reg_user'])) {
         $_SESSION['username'] = $username;
         $_SESSION['success'] = $success;
 
-        header(Location:login.php);
+        header('Location:login.php');
     }
 
 }
