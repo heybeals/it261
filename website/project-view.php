@@ -32,7 +32,7 @@ include ('./includes/header.php');
 ?>
 
 <div id="wrapper">
-<main>
+<main class="blurb">
     <h2>Check out this <?php echo $year;?> Bronco</h2>
     <ul>
         <?php
@@ -43,7 +43,7 @@ include ('./includes/header.php');
         <li><b>Color: </b>  '.$color.'</li>
         <li><b>Location: </b>  '.$location.'</li>
         <li><b>Source: </b>  '.$source.'</li>
-        <li><p>'.$details.'</p></li>
+        <p>'.$details.'</p>
         ';
         ?>
     </ul>
