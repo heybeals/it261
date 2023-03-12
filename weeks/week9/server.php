@@ -3,7 +3,6 @@
 
 session_start();
 include('config.php');
-// include('./includes/header.php');
 
 $errors = [];
 $iConn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die(myError(__FILE__,__LINE__,mysqli_connect_error()));
@@ -55,4 +54,29 @@ if (isset($_POST['reg_user'])) {
         header('Location:login.php');
     }
 
+}
+
+if (isset($_POST['login_user'])) {
+    $username = mysqli_real_escape_string($iConn, $_POST['username']);
+    $password = mysqli_real_escape_string($iConn, $_POST['password']);
+
+    if (empty($username)) {
+        array_push($errors, 'Username is required');
+    } if (empty($password)) {
+        array_push($errors, 'Password is required');
+    }
+
+    if (count($errors) == 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
+        $results = mysqli_query($iConn, $query);
+
+        if (mysqli_num_rows($results) == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = $success;
+            header('Location:index.php');
+        } else {
+            array_push($errors, 'Incorrect Username/Password combination');
+        }
+    }
 }
